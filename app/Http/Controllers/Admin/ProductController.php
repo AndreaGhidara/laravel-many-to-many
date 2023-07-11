@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.products.create");
     }
 
     /**
@@ -40,7 +40,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $data = $request->validated();
+        $newProduct = new Product;
+        $newProduct->fill($data);
+        $newProduct->save();
+
+        // return to_route("products.index");
+        return redirect()->route('admin.products.show', $newProduct->id);
     }
 
     /**
@@ -51,7 +57,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view("admin.products.show", compact("product") );
     }
 
     /**
@@ -62,7 +68,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -74,7 +80,12 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+        $product->fill($data);
+        $product->update();
+
+        // return to_route("products.index");
+        return redirect()->route('admin.products.show', $product);
     }
 
     /**

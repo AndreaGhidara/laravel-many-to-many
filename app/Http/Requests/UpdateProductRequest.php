@@ -13,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => "required| min:2 | max:100",
+            'description' => "nullable | min:5 | max:256",
+            'imgPath' => "nullable | url",
+            'link_to_project' => "nullable | url",
+        ];
+    }
+    public function messages(){
+        return [
+            "title.required" => "Il titolo e obligatorio"
         ];
     }
 }
