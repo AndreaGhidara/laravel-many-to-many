@@ -21,6 +21,10 @@ return new class extends Migration
             $table->text('imgPath')->nullable();
             $table->text('type')->nullable();
             $table->text('link_to_project')->nullable();
+
+
+            // $table->text('link_to_project')->nullable();
+            // $table->text('link_to_project')->nullable();
             // $table->string('price', 64)->require();
 
             $table->timestamps();

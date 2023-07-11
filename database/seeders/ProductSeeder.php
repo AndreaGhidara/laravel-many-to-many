@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
             $newProduct->title = $faker->word();
             $newProduct->description = $faker->paragraph();
             $newProduct->imgPath = $faker->imageUrl(360, 360, 'animals', true, 'dogs', true, 'jpg');
-            // $product->type = 
+            // $product->type_id = 
             $newProduct->link_to_project = $faker->url();
             $newProduct->save();
         }
