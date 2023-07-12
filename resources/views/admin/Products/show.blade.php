@@ -20,9 +20,15 @@
                     <div class="card p-1" style="width: 18rem; min-height: 40rem; max-height: 40rem">
                         <img src="{{$product->imgPath}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h4 class="card-title">
                                 {{$product->title}}
+                            </h4>
+                            <h5>
+                                {{$product->type ? $product->name : "no type"}}
                             </h5>
+                            @foreach ($product->tags as $tag)
+                                <li> - {{$tag->name}}</li>
+                            @endforeach
                             <p class="card-text">
                                 {{$product->description}}
                             </p>

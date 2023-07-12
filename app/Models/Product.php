@@ -13,7 +13,16 @@ class Product extends Model
         'title',
         'description',
         'imgPath',
-        'link_to_project'
+        'link_to_project',
+        'type_id'
     ];
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 
 }

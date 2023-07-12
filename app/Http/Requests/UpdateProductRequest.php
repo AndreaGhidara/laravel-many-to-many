@@ -28,6 +28,8 @@ class UpdateProductRequest extends FormRequest
             'description' => "nullable | min:5 | max:256",
             'imgPath' => "nullable | url",
             'link_to_project' => "nullable | url",
+            'type_id' => "nullable | exists:types,id",
+            "tags" => ""
         ];
     }
     public function messages(){
